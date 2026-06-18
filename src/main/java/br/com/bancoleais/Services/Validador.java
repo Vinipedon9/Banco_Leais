@@ -69,4 +69,41 @@ public class Validador{
         return cpfSemEspacamento;
     }
 
+    public static String validarFormatoContato(String contato) {
+        if (contato == null || contato.trim().isEmpty()) return "none";
+
+        String telefone = contato.replace(" ", "");
+
+        if (telefone.length() != 14) return "none";
+
+        for (int i = 0; i < telefone.length(); i++) {
+            char caractere = telefone.charAt(i);
+
+            if (i == 0) { if (caractere != '(') return "none"; }
+            else if (i == 3) { if (caractere != ')') return "none"; }
+            else if (i == 9) { if (caractere != '-') return "none"; }
+            else { if (!Character.isDigit(caractere)) return "none"; }
+        }
+
+        return telefone;
+    }
+
+    public static String validarFormatoEmail(String email) {
+
+        if (email == null || email.trim().isEmpty()) return "none";
+
+        String emailSemEspacamento = email.replace(" ", "").toLowerCase();
+
+        boolean temArroba = false;
+        for (int i = 0; i < emailSemEspacamento.length(); i++) {
+            if (emailSemEspacamento.charAt(i) == '@') {
+                temArroba = true;
+                break;
+            }
+        }
+        if (!temArroba) return "none";
+        return emailSemEspacamento;
+
+    }
+
 }

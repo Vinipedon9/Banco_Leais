@@ -1,5 +1,7 @@
 package br.com.bancoleais.Model.entidades;
 
+import static br.com.bancoleais.Controller.GUI.leia;
+
 public class Cliente {
     public String nomeCompleto;
     public String cpf;
@@ -16,12 +18,12 @@ public class Cliente {
         this.email = email;
     }
 
-    public void getEndereco() {
-        //endereço com numero ou S/N
-        //CEP
+    public void getEndereco(String endereco, String cep) {
+        this.endereco = endereco;
+        this.cep = cep;
     }
 
-    public void getSexo() {
-        //Lista de sexo
+    public void getSexo(String sexo) {
+        this.sexo = sexo;
     }
 }

@@ -37,4 +37,28 @@ public class ValidarEntradas {
         System.out.print(">>>Escolha uma opção: ");
         return leia.nextLine();
     }
+
+    public static String validarContato(String contato) {
+        contato = validarFormatoContato(contato);
+        while (contato.equals("none")) {
+            System.out.println("╔══════════════════════════════════════════════════════════╗");
+            System.out.println("║  ✘  telefone inválido! Use o formato: (xx)xxxxx-xxxx     ║");
+            System.out.println("╚══════════════════════════════════════════════════════════╝");
+            System.out.print("  ► Contato           : ");
+            contato = validarFormatoContato(leia.nextLine());
+        }
+        return contato;
+    }
+
+    public static String validarEmail(String email) {
+        email = validarFormatoEmail(email);
+        while (email.equals("none")) {
+            System.out.println("╔════════════════════════╗");
+            System.out.println("║  ✘  Email invalido!    ║");
+            System.out.println("╚════════════════════════╝");
+            System.out.print("  ► Email           : ");
+            email = validarFormatoEmail(leia.nextLine());
+        }
+        return email;
+    }
 }
