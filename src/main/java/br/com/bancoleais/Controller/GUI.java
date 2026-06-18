@@ -1,11 +1,13 @@
 package br.com.bancoleais.Controller;
 
+import br.com.bancoleais.Services.Validador;
+
 import java.util.Scanner;
 
 public class GUI {
     static Scanner leia = new Scanner(System.in);
 
-    public static int menu() {
+    public static String menu() {
         System.out.println("BANCO DIGITAL");
         System.out.println("1 -> Criar Conta");
         System.out.println("2 -> Acessar Conta");
@@ -15,6 +17,7 @@ public class GUI {
         System.out.println();
 
         System.out.print(">>>Escolha uma opção: ");
-        return Integer.parseInt(leia.nextLine());
+        var escolhaDoUsuario = leia.nextLine();
+        return escolhaDoUsuario;
     }
 }
