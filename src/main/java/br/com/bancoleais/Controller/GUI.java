@@ -2,6 +2,7 @@ package br.com.bancoleais.Controller;
 
 import br.com.bancoleais.Model.Factory.Builder;
 import br.com.bancoleais.Model.entidades.Cliente;
+import br.com.bancoleais.Services.ValidarEntradas;
 import br.com.bancoleais.Services.Validador;
 
 import java.util.Scanner;
@@ -23,7 +24,7 @@ public class GUI {
 
         var isValid = Validador.validadorMenu(escolhaDoUsuario);
         while (!isValid) {
-            escolhaDoUsuario = Validador.validarEntrada();
+            escolhaDoUsuario = ValidarEntradas.validarEntradaAoMenu();
             isValid = Validador.validadorMenu(escolhaDoUsuario);
         }
         return escolhaDoUsuario;
@@ -37,10 +38,10 @@ public class GUI {
         System.out.println("╚════════════════════════════════════════╝");
 
         System.out.print("\n  ► Nome completo : ");
-        String nome = leia.nextLine().trim();
+        String nome = ValidarEntradas.validarNome(leia.nextLine());
 
         System.out.print("  ► CPF           : ");
-        String cpf = leia.nextLine().trim();
+        String cpf = ValidarEntradas.validarCpf(leia.nextLine());
 
         System.out.print("  ► Contato       : ");
         String contato = leia.nextLine().trim();

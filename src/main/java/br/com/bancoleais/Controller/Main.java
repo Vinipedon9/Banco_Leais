@@ -20,7 +20,6 @@ public class Main {
             switch (escolhaDoUsuario) {
                 case 1 -> {
                     Cliente cliente = GUI.getConta();
-
                 }
             }
 
