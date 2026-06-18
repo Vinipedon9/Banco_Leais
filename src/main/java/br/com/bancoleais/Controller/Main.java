@@ -10,7 +10,7 @@ public class Main {
         GraphicElements.BankHeader();
 
         while (true) {
-            GUI.menu();
+            var escolhaDoUsuario = GUI.menu();
         }
     }
 }

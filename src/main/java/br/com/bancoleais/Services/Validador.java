@@ -7,33 +7,23 @@ public class Validador{
 
     static Scanner leia = new Scanner(System.in);
 
-    public static boolean isNumeric(String escolhaUsuario) {
-        if (escolhaUsuario == null || escolhaUsuario.trim().isEmpty()) return false;
+    public static boolean validadorMenu(String escolhaDoUsuario) {
+        escolhaDoUsuario = escolhaDoUsuario.replace(" ", "");
+        if (!escolhaDoUsuario.equals("1") &&
+             !escolhaDoUsuario.equals("2") &&
+             !escolhaDoUsuario.equals("3") &&
+             !escolhaDoUsuario.equals("4") &&
+             !escolhaDoUsuario.equals("0")){
 
-        String trimmed = escolhaUsuario.trim();
-
-        for (int i = 0; i < trimmed.length(); i++) {
-            if (i == 0 && trimmed.charAt(i) == '-' && trimmed.length() > 1) continue;
-            if (!Character.isDigit(trimmed.charAt(i))) return false;
+            return false;
         }
-
         return true;
     }
-
-    public static int turnToInteger() {
-        var escolhaUsuario = "";
-        while (true) {
-            System.out.println("╔══════════════════════════════════════════════════════════╗");
-            System.out.println("║  ✘  Entrada inválida! Digite apenas números inteiros.    ║");
-            System.out.println("╚══════════════════════════════════════════════════════════╝");
-            System.out.print(">>>Escolha uma opção: ");
-            escolhaUsuario = leia.nextLine();
-            if (isNumeric(escolhaUsuario)) {
-                break;
-            }
-        }
-        return Integer.parseInt(escolhaUsuario);
+    public static String validarEntrada() {
+        System.out.println("╔══════════════════════════════════════════════════════════╗");
+        System.out.println("║  ✘  Entrada inválida! Digite apenas valores de 1 a 4.    ║");
+        System.out.println("╚══════════════════════════════════════════════════════════╝");
+        System.out.print(">>>Escolha uma opção: ");
+        return leia.nextLine();
     }
-
-     
 }

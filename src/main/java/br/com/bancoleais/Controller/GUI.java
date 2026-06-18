@@ -18,6 +18,12 @@ public class GUI {
 
         System.out.print(">>>Escolha uma opção: ");
         var escolhaDoUsuario = leia.nextLine();
+
+        var isValid = Validador.validadorMenu(escolhaDoUsuario);
+        while (!isValid) {
+            escolhaDoUsuario = Validador.validarEntrada();
+            isValid = Validador.validadorMenu(escolhaDoUsuario);
+        }
         return escolhaDoUsuario;
     }
 }
